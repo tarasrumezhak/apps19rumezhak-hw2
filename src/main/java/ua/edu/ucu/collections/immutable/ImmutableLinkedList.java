@@ -35,8 +35,11 @@ public final class ImmutableLinkedList implements ImmutableList{
     private Node head;
     private int size = 0;
 
-
-
+    private void checkIndex(int index) {
+        if (index < 0 || index > size + 1) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
 
     private ImmutableLinkedList copyList(ImmutableLinkedList original) {
         if (original.head == null) {
@@ -60,9 +63,7 @@ public final class ImmutableLinkedList implements ImmutableList{
     }
 
     public ImmutableLinkedList add(int index, Object e) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         int counter = 0;
         ImmutableLinkedList newList = copyList(this);
         Node tempNode = newList.head;
@@ -103,9 +104,7 @@ public final class ImmutableLinkedList implements ImmutableList{
     }
 
     public Object get(int index) {
-        if (index < 0 || index > size+1) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         ImmutableLinkedList newList = copyList(this);
         Node temp = newList.head;
         while (index-- != 0) {
@@ -116,9 +115,7 @@ public final class ImmutableLinkedList implements ImmutableList{
 
 
     public ImmutableLinkedList remove(int index) {
-        if (index < 0 || index > size+1) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         ImmutableLinkedList newList = copyList(this);
         Node temp = newList.head;
         int counter = 0;
@@ -139,9 +136,7 @@ public final class ImmutableLinkedList implements ImmutableList{
     }
 
     public ImmutableLinkedList set(int index, Object e) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         ImmutableLinkedList newList = copyList(this);
         Node temp = newList.head;
         while (index-- != 0) {

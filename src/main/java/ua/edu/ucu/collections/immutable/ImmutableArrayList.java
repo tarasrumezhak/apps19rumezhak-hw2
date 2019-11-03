@@ -37,14 +37,18 @@ public final class ImmutableArrayList implements ImmutableList{
         return temp;
     }
 
+    private void checkIndex(int index) {
+        if (index < 0 || index > elements_count) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
     public ImmutableArrayList add(Object e) {
         return add(elements_count, e);
     }
 
     public ImmutableArrayList add(int index, Object e) {
-        if (index < 0 || index > elements_count) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         Object[] temp = newSize();
         System.arraycopy(array, 0, temp, 0, index);
         temp[index] = e;
@@ -75,16 +79,12 @@ public final class ImmutableArrayList implements ImmutableList{
     }
 
     public Object get(int index) {
-        if (index < 0 || index > elements_count) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         return array[index];
     }
 
     public ImmutableArrayList remove(int index) {
-        if (index < 0 || index >= elements_count) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         Object[] temp = new Object[size];
         System.arraycopy(array, 0, temp, 0, index);
         System.arraycopy(array, index + 1, temp, index , elements_count - index - 1);
@@ -93,9 +93,7 @@ public final class ImmutableArrayList implements ImmutableList{
     }
 
     public ImmutableArrayList set(int index, Object e) {
-        if (index < 0 || index > elements_count) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         Object[] temp = new Object[size];
         System.arraycopy(array, 0, temp, 0, elements_count);
         temp[index] = e;
