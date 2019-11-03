@@ -78,18 +78,24 @@ public class Main {
 //        System.out.println(lst);
         ImmutableLinkedList lst = new ImmutableLinkedList(new Object[] {"hello", 5, 'c'});
         System.out.println(lst);
-        lst = lst.add("added1");
-        System.out.println(lst);
-        lst = lst.addAll(new Object[] {"UCU", 3, "Arman"});
-        System.out.println(lst);
-        lst = lst.remove(3);
-        System.out.println(lst);
-        lst = lst.add("end");
-        System.out.println(lst);
-        lst = lst.addFirst("first");
-        System.out.println(lst);
-        System.out.println(lst.size());
-        lst = lst.add("last");
-        System.out.println(lst);
+        System.out.println(lst.indexOf(5));
+        lst.add(10, 3);
+//        lst = lst.add("added1");
+//        System.out.println(lst);
+//        lst = lst.addAll(new Object[] {"UCU", 3, "Arman"});
+//        System.out.println(lst);
+//        lst = lst.remove(3);
+//        System.out.println(lst);
+//        lst = lst.add("end");
+//        System.out.println(lst);
+//        lst = lst.addFirst("first");
+//        System.out.println(lst);
+//        System.out.println(lst.size());
+//        lst = lst.add("last");
+//        System.out.println(lst);
+//        ImmutableArrayList lst = new ImmutableArrayList();
+//        lst = lst.add("hello");
+//        lst = lst.add(5);
+//        System.out.println(lst);
     }
 }

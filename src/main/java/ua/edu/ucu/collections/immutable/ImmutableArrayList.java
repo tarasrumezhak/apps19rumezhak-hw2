@@ -1,7 +1,5 @@
 package ua.edu.ucu.collections.immutable;
 
-import java.util.Arrays;   // delete later
-
 public final class ImmutableArrayList implements ImmutableList{
     private static final int INITIAL_SIZE = 1;
     private Object[] array;
@@ -40,16 +38,7 @@ public final class ImmutableArrayList implements ImmutableList{
     }
 
     public ImmutableArrayList add(Object e) {
-//        System.out.println("array: " + Arrays.toString(array));
-        Object[] temp = newSize();
-        System.arraycopy(array, 0, temp, 0, elements_count);
-//        System.out.println("els count: " + elements_count);
-        temp[elements_count] = e;
-        elements_count += 1;
-//        System.out.println("els count after adding: " + elements_count);
-//        System.out.println("array after adding: " + Arrays.toString(temp));
-//        System.out.println("els count after adding: " + elements_count);
-        return new ImmutableArrayList(temp);
+        return add(elements_count, e);
     }
 
     public ImmutableArrayList add(int index, Object e) {
@@ -63,7 +52,7 @@ public final class ImmutableArrayList implements ImmutableList{
         return new ImmutableArrayList(temp);
     }
 
-    public ImmutableArrayList addAll(Object[] c, boolean index_val, int index) {
+    private ImmutableArrayList addAll(Object[] c, boolean index_val, int index) {
         ImmutableArrayList list2 = new ImmutableArrayList(array);
         for (Object o : c) {
             if (index_val) {
@@ -78,21 +67,10 @@ public final class ImmutableArrayList implements ImmutableList{
     }
 
     public ImmutableArrayList addAll(Object[] c) {
-//        ImmutableArrayList list2 = new ImmutableArrayList(array);
-//        for (Object o : c) {
-//            list2 = list2.add(o);
-//        }
-//        return list2;
         return this.addAll(c, false, 0);
     }
 
     public ImmutableArrayList addAll(int index, Object[] c) {
-//        ImmutableArrayList list2 = new ImmutableArrayList(array);
-//        for (Object o : c) {
-//            list2 = list2.add(index, o);
-//            index++;
-//        }
-//        return list2;
         return this.addAll(c, true, index);
     }
 
@@ -109,9 +87,7 @@ public final class ImmutableArrayList implements ImmutableList{
         }
         Object[] temp = new Object[size];
         System.arraycopy(array, 0, temp, 0, index);
-//        System.out.println("temp: " + Arrays.toString(temp));
         System.arraycopy(array, index + 1, temp, index , elements_count - index - 1);
-//        System.out.println("temp2: " + Arrays.toString(temp));
         return new ImmutableArrayList(temp);
 
     }
@@ -167,12 +143,4 @@ public final class ImmutableArrayList implements ImmutableList{
         return arrayText.toString().substring(0, arrayText.length() - 2);
     }
 
-//        StringBuilder arrayText = new StringBuilder();
-//        int i = 0;
-//        while (array[i] != null) {
-//            arrayText.append(array[i]).append(", ");
-//            i++;
-//        }
-//        return arrayText.toString().substring(0, arrayText.length() - 2);
-//    }
 }
