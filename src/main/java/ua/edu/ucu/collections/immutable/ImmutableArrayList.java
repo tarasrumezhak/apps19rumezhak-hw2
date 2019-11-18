@@ -1,12 +1,14 @@
 package ua.edu.ucu.collections.immutable;
 
+import java.util.Arrays;
+
 public final class ImmutableArrayList implements ImmutableList{
     private static final int INITIAL_SIZE = 1;
     private Object[] array;
     private int size;
     private int elements_count;
 
-    ImmutableArrayList() {
+    public ImmutableArrayList() {
         array = new Object[INITIAL_SIZE];
         size = INITIAL_SIZE;
         elements_count = 0;
@@ -110,8 +112,7 @@ public final class ImmutableArrayList implements ImmutableList{
     }
 
     public int size() {
-//        return elements_count;
-        return size;
+        return elements_count;
     }
 
     public ImmutableArrayList clear() {
@@ -123,7 +124,7 @@ public final class ImmutableArrayList implements ImmutableList{
     }
 
     public Object[] toArray() {
-        return array;
+        return Arrays.copyOfRange(array,0, elements_count);
     }
 
     @Override

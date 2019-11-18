@@ -104,14 +104,14 @@ public class ImmutableArrayListTest {
     public void testSizeAfterAdding() {
         ImmutableArrayList list = arrayList.add(4);
         int size = list.size();
-        assertEquals(size, 6);
+        assertEquals(size, 4);
     }
 
     @Test
     public void testClear() {
         ImmutableArrayList list = arrayList.clear();
         int size = list.size();
-        assertEquals(size, 1);
+        assertEquals(size, 0);
     }
 
     @Test
