@@ -121,7 +121,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         int counter = 0;
         if (index == 0) {
             ImmutableLinkedList lst = new ImmutableLinkedList(temp.next);
-            lst.size--;
+            lst.size = this.size - 1;
             return lst;
         }
         while (counter != index-1) {

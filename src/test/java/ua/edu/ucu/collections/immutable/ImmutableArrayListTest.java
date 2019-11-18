@@ -13,7 +13,7 @@ public class ImmutableArrayListTest {
         arrayEmpty = new ImmutableArrayList();
 
     }
-    
+
     @Test
     public void testSomeMethod() {
     }

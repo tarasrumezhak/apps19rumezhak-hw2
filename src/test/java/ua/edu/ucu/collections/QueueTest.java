@@ -14,7 +14,7 @@ public class QueueTest {
         queue.enqueue(3);
         queue.enqueue(4.0);
     }
-    
+
     @Test
     public void testPeek() {
         assertEquals(queue.peek(), "first");
