@@ -150,7 +150,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         ImmutableLinkedList newList = copyList(this);
         Node temp = newList.head;
         int counter = 0;
-        while (temp != null && temp.data != e) {
+        while (temp != null && !temp.data.equals(e)) {
             temp = temp.next;
             counter++;
         }

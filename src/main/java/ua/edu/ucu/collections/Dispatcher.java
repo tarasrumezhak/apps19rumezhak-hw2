@@ -56,7 +56,7 @@ public class Dispatcher {
 //        System.out.println(b);
         sameResult(b.indexOf(1),0);
         // test on  == vs equals usage in function indexOf
-//        sameResult(b.indexOf(new Integer(1)),0); // = ) commented bad line
+        sameResult(b.indexOf(new Integer(1)),0); // = )
 
 
         b = b.clear();

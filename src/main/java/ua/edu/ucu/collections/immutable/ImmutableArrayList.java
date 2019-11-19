@@ -104,7 +104,7 @@ public final class ImmutableArrayList implements ImmutableList{
 
     public int indexOf(Object e) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == e) {
+            if (array[i].equals(e)) {
                 return i;
             }
         }
